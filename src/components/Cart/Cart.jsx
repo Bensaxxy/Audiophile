@@ -16,6 +16,17 @@ const Cart = ({
     );
   };
 
+  const handleCheckout = () => {
+    if (cartItems.length === 0) return; // Prevent checkout if cart is empty
+
+    // Perform checkout actions here, e.g., navigate to checkout page
+    // For demonstration, simply log a message
+    console.log("Performing checkout...");
+
+    // Close the cart popup
+    handlePopUp();
+  };
+
   return (
     <div
       className={`fixed inset-0 z-40 transition-opacity duration-300 ${
@@ -45,7 +56,7 @@ const Cart = ({
             </button>
             <div className="flex justify-between">
               <h1 className="font-bold">
-                CART<span>({cartItems.length})</span>
+                CART{cartItems.length > 0 && <span>({cartItems.length})</span>}
               </h1>
               <button
                 onClick={clearCart}
@@ -66,19 +77,19 @@ const Cart = ({
                     />
                     <div>
                       <h1 className="font-bold text-sm">{item.name}</h1>
-                      <p className="text-sm">${item.price}</p>
+                      <p className="text-sm">${item.price.toLocaleString()}</p>
                     </div>
                   </div>
                   <div className="flex gap-4 py-1 px-4 bg-secondary/10 rounded-sm">
                     <button
-                      className=" hover:text-hoverPrimary duration-300"
+                      className="hover:text-hoverPrimary duration-300"
                       onClick={() => removeFromCart(item.id)}
                     >
                       -
                     </button>
                     <h1>{item.quantity}</h1>
                     <button
-                      className=" hover:text-hoverPrimary duration-300"
+                      className="hover:text-hoverPrimary duration-300"
                       onClick={() => addToCart({ ...item, quantity: 1 })}
                     >
                       +
@@ -90,11 +101,19 @@ const Cart = ({
             <div className="flex justify-between">
               <button className="text-secondary/70">TOTAL</button>
               <h1 className="font-bold">
-                <span>${calculateTotal()}</span>
+                <span>${calculateTotal().toLocaleString()}</span>
               </h1>
             </div>
-            <Link to="/FormValidation">
-              <button className="text-sm w-full bg-primary text-gray py-3 rounded-sm hover:bg-hoverPrimary">
+            <Link to={cartItems.length > 0 ? "/FormValidation" : "#"}>
+              <button
+                onClick={handleCheckout}
+                className={`text-sm w-full py-3 rounded-sm ${
+                  cartItems.length > 0
+                    ? "bg-primary text-gray hover:bg-hoverPrimary"
+                    : "bg-gray-400 text-gray-700 cursor-not-allowed"
+                }`}
+                disabled={cartItems.length === 0}
+              >
                 CHECKOUT
               </button>
             </Link>

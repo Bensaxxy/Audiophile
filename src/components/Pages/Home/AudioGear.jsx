@@ -10,13 +10,13 @@ const AudioGear = () => {
     });
   }, []);
   return (
-    <div className=" py-12">
-      <div className=" container grid grid-cols-1 lg:grid-cols-2 items-center gap-8 font-primary ">
+    <div className="container py-12">
+      <div className="  grid grid-cols-1 lg:grid-cols-2  items-center gap-8 font-primary ">
         <div
           className="  order-1 text-center lg:text-left px-6 lg:px-0"
           data-aos="fade-right"
         >
-          <h1 className="tracking-wider text-3xl sm:text-4xl font-bold md:text-[32px] lg:text-[40px] text-secondary uppercase">
+          <h1 className="tracking-wider lg:w-[87%] text-3xl sm:text-4xl font-bold md:text-[32px] lg:text-[40px] text-secondary uppercase">
             Bringing you the <span className=" text-primary"> best </span> audio
             gear
           </h1>
@@ -29,7 +29,7 @@ const AudioGear = () => {
             make Audiophile the best place to buy your portable audio equipment.
           </p>
         </div>
-        <div className=" lg:order-2 w-full h-[300px] lg:h-[500px] bg-no-repeat bg-contain bg-center bg-[url('/src/assets/home/mobile/image-best-gear.jpg')] md:bg-[url('/src/assets/home/tablet/image-best-gear.jpg')] lg:bg-[url('/src/assets/home/desktop/image-best-gear.jpg')]"></div>
+        <div className=" lg:order-2 w-full h-[300px] lg:h-[500px] bg-no-repeat bg-cover bg-center bg-[url('/src/assets/home/mobile/image-best-gear.jpg')] md:bg-[url('/src/assets/home/tablet/image-best-gear.jpg')] lg:bg-[url('/src/assets/home/desktop/image-best-gear.jpg')]"></div>
       </div>
     </div>
   );

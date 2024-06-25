@@ -19,9 +19,9 @@ const Header = ({
 
   return (
     <>
-      <header className="font-primary w-full text-gray fixed top-0 bg-black z-40">
-        <section className=" w-full h-[70px] py-8 container flex justify-between items-center">
-          <div className=" flex items-center gap-3">
+      <header className="font-primary w-full text-gray fixed top-0 right-0 left-0 bg-black z-40">
+        <section className="w-full h-[70px] py-8 container flex justify-between items-center">
+          <div className="flex items-center gap-3">
             <Mobile />
             <NavLink
               to="/"
@@ -36,7 +36,7 @@ const Header = ({
               <li>
                 <NavLink
                   to="/"
-                  smooth={true}
+                  smooth="true"
                   duration={800}
                   offset={-50}
                   className={({ isActive }) =>
@@ -51,7 +51,7 @@ const Header = ({
               <li>
                 <NavLink
                   to="/Headphones"
-                  smooth={true}
+                  smooth="true"
                   duration={800}
                   offset={-50}
                   className={({ isActive }) =>
@@ -66,7 +66,7 @@ const Header = ({
               <li>
                 <NavLink
                   to="/Speakers"
-                  smooth={true}
+                  smooth="true"
                   duration={800}
                   offset={-50}
                   className={({ isActive }) =>
@@ -81,7 +81,7 @@ const Header = ({
               <li>
                 <NavLink
                   to="/Earphones"
-                  smooth={true}
+                  smooth="true"
                   duration={800}
                   offset={-50}
                   className={({ isActive }) =>
@@ -98,9 +98,11 @@ const Header = ({
           <div className="relative">
             <button onClick={handlePopUp}>
               <IoCartOutline className="cursor-pointer" size={25} />
-              <span className="bg-primary p-1 rounded-full w-6 h-6 flex items-center justify-center absolute -right-2 -top-2">
-                {cartQuantity}
-              </span>
+              {cartQuantity > 0 && (
+                <span className="bg-primary p-1 rounded-full w-6 h-6 flex items-center justify-center absolute -right-2 -top-2">
+                  {cartQuantity}
+                </span>
+              )}
             </button>
             <Cart
               orderPop={orderPop}

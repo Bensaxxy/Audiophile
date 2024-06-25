@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Features from "../Headphones/Features";
-import ThreeGrids from "../Headphones/ThreeGrids";
 import AudioGear from "../Home/AudioGear";
 import Footer from "../Home/Footer";
 import ThreeLayers from "../Home/ThreeLayers";
 import MayLikeFive from "./MayLikeFive";
+import SpeakerFeaturesTwo from "./SpeakerFeaturesTwo";
+import ThreeGridsFive from "./ThreeGridsFive";
 
 const ProductDetailsSpeakerTwo = ({ addToCart }) => {
   const navigate = useNavigate();
@@ -78,8 +78,8 @@ const ProductDetailsSpeakerTwo = ({ addToCart }) => {
             </div>
           </div>
         </div>
-        <Features />
-        <ThreeGrids />
+        <SpeakerFeaturesTwo />
+        <ThreeGridsFive />
         <MayLikeFive />
         <ThreeLayers />
         <AudioGear />

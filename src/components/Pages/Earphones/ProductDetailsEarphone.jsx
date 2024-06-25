@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Features from "../Headphones/Features";
-import ThreeGrids from "../Headphones/ThreeGrids";
 import Footer from "../Home/Footer";
 import ThreeLayers from "../Home/ThreeLayers";
 import MayLikeSix from "./MayLikeSix";
+import ThreeGridsSix from "./ThreeGridsSix";
+import EarphonesFeatures from "./EarphonesFeatures";
+
 const ProductDetailsEarphone = ({ addToCart }) => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
@@ -32,7 +33,7 @@ const ProductDetailsEarphone = ({ addToCart }) => {
             Go Back
           </button>
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 font-primary">
-            <div className="w-full h-[300px] lg:h-[500px] bg-no-repeat bg-contain bg-center bg-[url('/src/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg')] md:bg-[url('/src/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg')] lg:bg-[url('/src/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg')]"></div>
+            <div className="w-full h-[300px] lg:h-[500px] bg-no-repeat bg-cover bg-center bg-[url('/src/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg')] md:bg-[url('/src/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg')] lg:bg-[url('/src/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg')]"></div>
             <div className="text-center lg:text-left px-6 lg:px-0">
               <p className="mb-6 text-primary">NEW PRODUCT</p>
               <h1 className="tracking-wider text-3xl sm:text-4xl md:text-[32px] lg:text-[40px] text-secondary uppercase font-bold">
@@ -75,8 +76,8 @@ const ProductDetailsEarphone = ({ addToCart }) => {
             </div>
           </div>
         </div>
-        <Features />
-        <ThreeGrids />
+        <EarphonesFeatures />
+        <ThreeGridsSix />
         <MayLikeSix />
         <ThreeLayers />
       </div>

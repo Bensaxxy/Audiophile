@@ -4,6 +4,7 @@ import cashDeliveryIcon from "../../assets/checkout/icon-cash-on-delivery.svg";
 import Footer from "../Pages/Home/Footer";
 import Summary from "./Summary";
 import Confirmation from "../Pages/Confirmation/Confirmation";
+import Notification from "../Form/Notification"; // Import the notification component
 
 const FormValidation = ({
   cartItems,
@@ -29,6 +30,7 @@ const FormValidation = ({
   const [errors, setErrors] = useState({});
   const [showSummary, setShowSummary] = useState(true);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showNotification, setShowNotification] = useState(false); // State for notification visibility
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,9 +51,14 @@ const FormValidation = ({
     if (!formData.zip) newErrors.zip = "ZIP is required";
     if (!formData.country) newErrors.country = "Country is required";
     if (formData.paymentMethod === "e-money") {
-      if (!formData.eMoneyNumber)
+      if (!formData.eMoneyNumber) {
         newErrors.eMoneyNumber = "e-Money Number is required";
-      if (!formData.eMoneyPin) newErrors.eMoneyPin = "e-Money PIN is required";
+        setShowNotification(true);
+      }
+      if (!formData.eMoneyPin) {
+        newErrors.eMoneyPin = "e-Money PIN is required";
+        setShowNotification(true);
+      }
     }
 
     return newErrors;
@@ -74,6 +81,10 @@ const FormValidation = ({
     setShowConfirmation(false);
   };
 
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
   return (
     <>
       <div className="font-primary py-12 bg-gray">
@@ -85,8 +96,8 @@ const FormValidation = ({
             Go Back
           </button>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div className="bg-white px-6 py-8 rounded-md">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className=" col-span-2 bg-white px-6 py-8 rounded-md">
               <h1 className="tracking-wider text-3xl sm:text-4xl md:text-[32px] lg:text-[30px] text-secondary uppercase font-bold">
                 CHECKOUT
               </h1>
@@ -156,7 +167,7 @@ const FormValidation = ({
                     SHIPPING INFO
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col md:col-span-2">
                       <label className="font-bold my-2 text-md md:text-md">
                         Address
                       </label>
@@ -220,7 +231,7 @@ const FormValidation = ({
                         name="country"
                         value={formData.country}
                         onChange={handleInputChange}
-                        placeholder="USA"
+                        placeholder="United States"
                       />
                       {errors.country && (
                         <span className="text-red-500 text-sm">
@@ -233,12 +244,12 @@ const FormValidation = ({
                   <p className="text-primary font-bold my-10 text-xl">
                     PAYMENT DETAILS
                   </p>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col md:flex-row md:justify-between">
                     <p className="font-bold text-lg">Payment Method</p>
                     <div className="flex flex-col gap-4 mt-4">
-                      <div className="flex items-center gap-2 border-2 py-3 border-secondary/10 hover:border-primary rounded-lg pl-4 pr-28">
+                      <div className="flex items-center gap-2 border-2 py-3 border-secondary/10 hover:border-primary rounded-lg pr-28 duration-300">
                         <input
-                          className="w-5 h-5 accent-primary"
+                          className="w-20 h-5 accent-primary"
                           type="radio"
                           name="paymentMethod"
                           value="e-money"
@@ -247,9 +258,9 @@ const FormValidation = ({
                         />
                         <label>e-Money</label>
                       </div>
-                      <div className="flex items-center gap-2 border-2 py-3 border-secondary/10 hover:border-primary rounded-lg pl-4 pr-28">
+                      <div className="flex items-center gap-2 border-2 py-3 border-secondary/10 hover:border-primary rounded-lg  pr-28 duration-300">
                         <input
-                          className="w-5 h-5 accent-primary"
+                          className="w-20 h-5 accent-primary"
                           type="radio"
                           name="paymentMethod"
                           value="cash-on-delivery"
@@ -337,6 +348,13 @@ const FormValidation = ({
           cartItems={cartItems}
           grandTotal={grandTotal}
           handleClose={handleCloseConfirmation}
+        />
+      )}
+      {showNotification && (
+        <Notification
+          message="SOMETHING IS WRONG"
+          onClose={handleCloseNotification}
+          duration={2000} // Auto-dismiss after 3 seconds
         />
       )}
     </>

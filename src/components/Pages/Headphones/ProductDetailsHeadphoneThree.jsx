@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import AudioGear from "../Home/AudioGear";
 import Footer from "../Home/Footer";
 import ThreeLayers from "../Home/ThreeLayers";
-import Features from "./Features";
+import FeaturesThree from "./FeaturesThree";
 import MayLikeThree from "./MayLikeThree";
-import ThreeGrids from "./ThreeGrids";
+import ThreeGridsThree from "./ThreeGridsThree";
 
 const ProductDetailsHeadphoneThree = ({ addToCart }) => {
   const [quantity, setQuantity] = useState(1);
@@ -78,8 +78,9 @@ const ProductDetailsHeadphoneThree = ({ addToCart }) => {
             </div>
           </div>
         </div>
-        <Features />
-        <ThreeGrids />
+
+        <FeaturesThree />
+        <ThreeGridsThree />
         <MayLikeThree />
         <ThreeLayers />
         <AudioGear />

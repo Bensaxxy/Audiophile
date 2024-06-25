@@ -4,15 +4,16 @@ import homeImg from "../../../assets/home/home.png";
 import HomeTwo from "./HomeTwo";
 import AudioGear from "./AudioGear";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
-      <div className=" bg-secondary font-primary">
-        <section>
+      <div className="  bg-secondary font-primary">
+        <section className="">
           <div className="  bg-center bg-cover w-full h-screen bg-[url('/src/assets/home/mobile/image-header.jpg')] lg:bg-[url('/src/assets/home/desktop/image-hero.jpg')] md:bg-[url('/src/assets/home/tablet/image-header.jpg')] grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
             <motion.div
-              className="text-center lg:text-left px-10 lg:px-20"
+              className="text-center lg:text-left px-10 lg:px-20 flex flex-col lg:justify-start lg:items-start items-center justify-center container"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -35,7 +36,7 @@ const Home = () => {
                 XX99 Mark II Headphones
               </motion.h1>
               <motion.p
-                className="text-gray text-xl sm:text-base md:text-lg lg:text-xl mt-6"
+                className="text-gray text-xl sm:text-base md:text-lg lg:text-xl mt-6 sm:max-w-[10%] md:max-w-[40%]  lg:max-w-[80%]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
@@ -43,16 +44,18 @@ const Home = () => {
                 Experience natural, life-like audio and exceptional build
                 quality made for the passionate music enthusiast.
               </motion.p>
-              <motion.button
-                className=" rounded-sm bg-primary py-4 px-8 text-gray mt-8 hover:bg-hoverPrimary transition-colors duration-300"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                See Product
-              </motion.button>
+              <Link to="/ProductDetailsHeadphoneOne">
+                <motion.button
+                  className=" rounded-sm bg-primary py-4 px-8 text-gray mt-8 hover:bg-hoverPrimary transition-colors duration-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  See Product
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </section>

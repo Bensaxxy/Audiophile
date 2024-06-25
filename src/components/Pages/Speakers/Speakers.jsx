@@ -9,7 +9,7 @@ const Speakers = () => {
   return (
     <div className=" font-primary">
       <div className=" bg-black">
-        <section className=" mt-20 justify-center container flex flex-col items-center w-full h-[200px]">
+        <section className=" mt-[70px] justify-center container flex flex-col items-center w-full h-[200px]">
           <h1 className="tracking-wider text-5xl sm:text-5xl md:text-[42px] lg:text-[52px] font-bold text-gray mt-4">
             SPEAKERS
           </h1>
@@ -19,7 +19,7 @@ const Speakers = () => {
       {/**section Two 2 */}
       <div className=" py-12">
         <div className=" container grid grid-cols-1 lg:grid-cols-2 items-center gap-8 font-primary ">
-          <div className=" w-full h-[300px] lg:h-[500px] bg-no-repeat bg-contain bg-center bg-[url('/src/assets/product-zx9-speaker/mobile/image-product.jpg')] md:bg-[url('/src/assets/product-zx9-speaker/tablet/image-product.jpg')] lg:bg-[url('/src/assets/product-zx9-speaker/desktop/image-product.jpg')]"></div>
+          <div className=" w-full bg-cover h-[300px] lg:h-[500px] bg-no-repeat bg-center bg-[url('/src/assets/product-zx9-speaker/mobile/image-product.jpg')] md:bg-[url('/src/assets/product-zx9-speaker/tablet/image-product.jpg')] lg:bg-[url('/src/assets/product-zx9-speaker/desktop/image-product.jpg')]"></div>
           <div className=" text-center lg:text-left px-6 lg:px-0">
             <p className="mb-6 text-primary">NEW PRODUCT</p>
             <h1 className="tracking-wider text-3xl sm:text-4xl md:text-[32px] lg:text-[40px] text-secondary uppercase font-bold">
@@ -43,7 +43,7 @@ const Speakers = () => {
 
       {/**section three 3 */}
       <div className=" py-12">
-        <div className=" container grid grid-cols-1 lg:grid-cols-2 items-center gap-8 font-primary ">
+        <div className=" container  grid grid-cols-1 lg:grid-cols-2 items-center gap-8 font-primary ">
           <div className=" order-2  text-center lg:text-left px-6 lg:px-0">
             <p className="mb-6 text-primary">NEW PRODUCT</p>
             <h1 className="tracking-wider text-3xl sm:text-4xl md:text-[32px] lg:text-[40px] text-secondary uppercase font-bold">
@@ -62,7 +62,7 @@ const Speakers = () => {
               See Product
             </button>
           </div>
-          <div className=" lg:order-2 w-full h-[300px] lg:h-[500px] bg-no-repeat bg-contain bg-center bg-[url('/src/assets/product-zx7-speaker/mobile/image-product.jpg')] md:bg-[url('/src/assets/product-zx7-speaker/tablet/image-product.jpg')] lg:bg-[url('/src/assets/product-zx7-speaker/desktop/image-product.jpg')]"></div>
+          <div className=" lg:order-2 bg-cover w-full h-[300px] lg:h-[500px] bg-no-repeat bg-center bg-[url('/src/assets/product-zx7-speaker/mobile/image-product.jpg')] md:bg-[url('/src/assets/product-zx7-speaker/tablet/image-product.jpg')] lg:bg-[url('/src/assets/product-zx7-speaker/desktop/image-product.jpg')]"></div>
         </div>
       </div>
       <ThreeLayers />

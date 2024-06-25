@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import img1 from "../../../assets/home/headphone.png";
@@ -12,20 +13,24 @@ const homeData = [
     image: img1,
     title: "HEADPHONES",
     subtitle: "Shop",
+    link: "/headphones", // Define the route for headphones
   },
   {
     id: "2",
     image: img2,
     title: "SPEAKERS",
     subtitle: "Shop",
+    link: "/speakers", // Define the route for speakers
   },
   {
     id: "3",
     image: img3,
     title: "EARPHONES",
     subtitle: "Shop",
+    link: "/earphones", // Define the route for earphones
   },
 ];
+
 const ThreeLayers = () => {
   useEffect(() => {
     AOS.init({
@@ -35,8 +40,8 @@ const ThreeLayers = () => {
   }, []);
 
   return (
-    <div className=" my-20">
-      <section className="container mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="container my-20">
+      <section className="mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-3">
         {homeData.map((data) => (
           <div
             key={data.id}
@@ -51,13 +56,12 @@ const ThreeLayers = () => {
             <h1 className="text-secondary text-[16px] font-bold mt-10">
               {data.title}
             </h1>
-            <div className="flex items-center gap-6">
-              <button className="hover:text-hoverPrimary">
+            <Link to={data.link}>
+              <div className="cursor-pointer flex items-center gap-6 hover:text-hoverPrimary">
                 {data.subtitle}
-              </button>
-
-              <img className="w-2" src={path} alt="Arrow" />
-            </div>
+                <img className="w-2" src={path} alt="Arrow" />
+              </div>
+            </Link>
           </div>
         ))}
       </section>

@@ -23,7 +23,7 @@ const Summary = ({
 
   return (
     <div>
-      <div className="bg-white rounded-md w-[350px] p-6">
+      <div className="bg-white rounded-md w-full lg:w-[270px] p-6">
         <h1 className="tracking-wider text-2xl sm:text-3xl md:text-[22px] lg:text-[20px] text-secondary uppercase font-bold">
           Summary
         </h1>
@@ -37,7 +37,7 @@ const Summary = ({
               />
               <div className="flex flex-col">
                 <h1 className="font-bold">{item.name}</h1>
-                <p>${item.price}</p>
+                <p>${item.price.toLocaleString()}</p>
               </div>
             </div>
             <p>x{item.quantity}</p>
@@ -46,7 +46,7 @@ const Summary = ({
         <div className="flex flex-col">
           <div className="flex items-center text-md lg:text-lg justify-between">
             <p className="text-secondary/70">TOTAL</p>
-            <p className="font-bold">${total}</p>
+            <p className="font-bold">${total.toLocaleString()}</p>
           </div>
           <div className="flex items-center my-2 text-md lg:text-lg justify-between">
             <p className="text-secondary/70">SHIPPING</p>
@@ -54,11 +54,13 @@ const Summary = ({
           </div>
           <div className="flex items-center my-2 text-md lg:text-lg justify-between">
             <p className="text-secondary/70">VAT (INCLUDED)</p>
-            <p className="font-bold">${vat}</p>
+            <p className="font-bold">${vat.toLocaleString()}</p>
           </div>
           <div className="flex items-center my-6 text-md lg:text-lg justify-between">
             <p className="text-secondary/70">GRAND TOTAL</p>
-            <p className="font-bold text-primary">${grandTotal}</p>
+            <p className="font-bold text-primary">
+              ${grandTotal.toLocaleString()}
+            </p>
           </div>
 
           <button

@@ -10,14 +10,8 @@ const Confirmation = ({ cartItems, grandTotal, handleClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-[1px] bg-black bg-opacity-50">
+    <div className=" fixed inset-0 z-50 flex items-center justify-center backdrop-blur-[1px] bg-black bg-opacity-50">
       <div className="font-primary bg-white p-6 rounded-md relative">
-        <button
-          onClick={handleClose}
-          className="absolute top-3 right-3 text-secondary text-[30px] font-bold"
-        >
-          &times;
-        </button>
         <div className="flex flex-col justify-center items-left gap-6">
           <img
             className="w-full max-w-16 lg:max-w-20"
@@ -30,59 +24,65 @@ const Confirmation = ({ cartItems, grandTotal, handleClose }) => {
           <p className="text-secondary text-md md:text-lg">
             You will receive an email confirmation shortly.
           </p>
-          <div className="rounded-lg grid gap-4">
-            <div className="bg-gray rounded-lg flex justify-between items-center p-4">
-              <div className="flex gap-4 items-center">
-                <img
-                  src={cartItems[0].image}
-                  className="w-12 h-12 object-cover"
-                  alt={cartItems[0].name}
-                />
-                <div className="flex flex-col">
-                  <h1 className="font-bold">{cartItems[0].name}</h1>
-                  <p>${cartItems[0].price}</p>
-                </div>
-              </div>
-              <p>x{cartItems[0].quantity}</p>
-            </div>
-            {cartItems.length > 1 && (
-              <>
-                <button
-                  onClick={handleToggleItems}
-                  className="bg-gray-200 py-2 px-4 text-secondary font-bold rounded-md mt-4"
-                >
-                  {showAllItems
-                    ? "Show Less"
-                    : `and ${cartItems.length - 1} other item(s)`}
-                </button>
-                {showAllItems && (
-                  <div className="grid gap-4">
-                    {cartItems.slice(1).map((item, index) => (
-                      <div
-                        key={index}
-                        className="bg-gray rounded-lg flex justify-between items-center p-4"
-                      >
-                        <div className="flex gap-4 items-center">
-                          <img
-                            src={item.image}
-                            className="w-12 h-12 object-cover"
-                            alt={item.name}
-                          />
-                          <div className="flex flex-col">
-                            <h1 className="font-bold">{item.name}</h1>
-                            <p>${item.price}</p>
-                          </div>
-                        </div>
-                        <p>x{item.quantity}</p>
-                      </div>
-                    ))}
+          <div className="rounded-lg grid md:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4">
+              <div className="bg-gray-200 rounded-lg flex justify-between items-center p-4">
+                <div className="flex gap-4 items-center">
+                  <img
+                    src={cartItems[0].image}
+                    className="w-12 h-12 object-cover"
+                    alt={cartItems[0].name}
+                  />
+                  <div className="flex flex-col">
+                    <h1 className="font-bold">{cartItems[0].name}</h1>
+                    <p>${cartItems[0].price.toLocaleString()}</p>
                   </div>
-                )}
-              </>
-            )}
-            <div className="bg-secondary rounded-lg text-gray flex flex-col p-4 mt-4">
-              <h1 className="font-bold">GRAND TOTAL</h1>
-              <p>${grandTotal}</p>
+                </div>
+                <p>x{cartItems[0].quantity}</p>
+              </div>
+              {cartItems.length > 1 && (
+                <>
+                  <button
+                    onClick={handleToggleItems}
+                    className="bg-gray-200 py-2 px-4 text-secondary font-bold rounded-md"
+                  >
+                    {showAllItems
+                      ? "Show Less"
+                      : `and ${cartItems.length - 1} other item(s)`}
+                  </button>
+                  {showAllItems && (
+                    <div className="grid gap-4">
+                      {cartItems.slice(1).map((item, index) => (
+                        <div
+                          key={index}
+                          className="bg-gray-200 rounded-lg flex justify-between items-center p-4"
+                        >
+                          <div className="flex gap-4 items-center">
+                            <img
+                              src={item.image}
+                              className="w-12 h-12 object-cover"
+                              alt={item.name}
+                            />
+                            <div className="flex flex-col">
+                              <h1 className="font-bold">{item.name}</h1>
+                              <p>${item.price.toLocaleString()}</p>
+                            </div>
+                          </div>
+                          <p>x{item.quantity}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className="bg-secondary rounded-lg text-gray flex  justify-center flex-col p-4">
+              <h1 className="font-normal text-gray/50 lg:text-lg mb-3">
+                GRAND TOTAL
+              </h1>
+              <p className=" text-2xl font-semibold text-white">
+                ${grandTotal.toLocaleString()}
+              </p>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Confirmation = ({ cartItems, grandTotal, handleClose }) => {
         <Link to="/">
           <button
             onClick={handleClose}
-            className="bg-primary py-3 px-8 text-gray text-lg hover:bg-hoverPrimary duration-300 mt-4"
+            className="bg-primary py-3 px-8 text-gray text-lg hover:bg-hoverPrimary duration-300 mt-4 w-full"
           >
             Go back home
           </button>
