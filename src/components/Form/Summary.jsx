@@ -23,7 +23,7 @@ const Summary = ({
 
   return (
     <div>
-      <div className="bg-white rounded-md w-full lg:w-[270px] p-6">
+      <div className="bg-white rounded-md w-full p-6">
         <h1 className="tracking-wider text-2xl sm:text-3xl md:text-[22px] lg:text-[20px] text-secondary uppercase font-bold">
           Summary
         </h1>

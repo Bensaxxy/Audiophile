@@ -47,7 +47,7 @@ const Cart = ({
         }`}
       >
         <div className="relative font-primary text-secondary">
-          <div className="flex flex-col gap-6 justify-center px-6 pt-12 pb-6 absolute w-[280px] drop-shadow-md bg-white right-20 top-20 rounded-lg">
+          <div className="flex flex-col gap-6 justify-center px-6 pt-12 pb-6 absolute w-[340px] drop-shadow-md bg-white right-20 top-20 rounded-lg">
             <button
               onClick={handlePopUp}
               className="font-extrabold flex justify-center absolute top-3 right-4 w-6 h-6 bg-primary items-center rounded-full text-white text-sm hover:bg-hoverPrimary"
